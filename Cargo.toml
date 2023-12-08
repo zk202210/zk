@@ -1,0 +1,37 @@
+[package]
+name = "rustzk"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+rand = "~0.8"
+aes = "~0.8"
+sha2 = "~0.10"
+sha3 = "~0.10"
+mio = { version = "~0.8", features = ["os-ext", "os-poll"] }
+queues = "~1.1"
+primitive-types = "~0.12"
+procfs = "~0.15"
+gmp-mpfr-sys = "~1.5"
+dashu = "~0.3"
+rug = { version = "~1.19", features = ["rational"] }
+
+[profile.test]
+opt-level = 3
+debug = true
+debug-assertions = true
+
+[features]
+microbench = []
+nanobench = []
+memsave = []
+
+[[bin]]
+name = "ringsig_fold_vith"
+path = "src/bin/ringsig_fold_vith.rs"
+
+[[bin]]
+name = "ringsig_vith"
+path = "src/bin/ringsig_vith.rs"
